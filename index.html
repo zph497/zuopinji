@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电商设计作品集</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:#F5EFE6;color:#2B2420;line-height:1.5;font-size:14px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,video{display:block;width:100%;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px;}
+
+  /* Hero：极简 */
+  .hero{padding:48px 0 28px;text-align:center;}
+  .hero h1{
+    font-family:"Noto Serif SC",serif;font-size:26px;font-weight:900;
+    margin-bottom:8px;letter-spacing:.02em;
+  }
+  .hero p{font-size:13px;color:#A89B8E;}
+  .hero .name{color:#B8653A;}
+
+  /* 板块导航 sticky */
+  .nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(245,239,230,.95);backdrop-filter:blur(10px);
+    border-bottom:1px solid #E7E4DD;padding:12px 0;
+  }
+  .nav-row{
+    display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+  }
+  .nav-row::-webkit-scrollbar{display:none;}
+  .nav-row button{
+    flex-shrink:0;font-size:13px;padding:7px 16px;border-radius:100px;
+    background:transparent;border:1px solid #DDD9D0;color:#666;
+    cursor:pointer;font-family:inherit;transition:all .2s;
+  }
+  .nav-row button.active{background:#2B2420;color:#fff;border-color:#2B2420;}
+
+  /* 板块标题 */
+  .section{padding:36px 0 8px;}
+  .sec-title{
+    font-family:"Noto Serif SC",serif;font-size:20px;font-weight:700;
+    margin-bottom:4px;
+  }
+  .sec-sub{font-size:12px;color:#999;margin-bottom:18px;}
+
+  /* 占位图块 */
+  .ph{
+    background:#D8D5CE;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    color:#8A8780;font-size:11px;text-align:center;position:relative;
+    border:1px dashed #B8B5AE;overflow:hidden;
+  }
+  .ph::before{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.35) 8px,rgba(255,255,255,.35) 16px);
+  }
+  .ph span{position:relative;z-index:1;padding:10px;line-height:1.5;}
+  .r169{aspect-ratio:16/9;}
+  .r34{aspect-ratio:3/4;}
+  .r11{aspect-ratio:1/1;}
+  .r916{aspect-ratio:9/16;}
+  .r219{aspect-ratio:21/9;}
+
+  /* 图墙布局 */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;}
+  .full{margin-bottom:8px;border-radius:8px;overflow:hidden;}
+  .full img{width:100%;display:block;}
+
+  /* 视频块 */
+  .vid{border-radius:8px;overflow:hidden;background:#000;margin-bottom:8px;}
+
+  /* 详情页统一尺寸格子 */
+  .dcell{
+    height:420px;overflow:hidden;border-radius:6px;background:#fff;
+    border:1px solid #E8DFD2;
+  }
+  .dcell img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+    display:block;
+  }
+
+  /* 详情页长图分段裁切 */
+  .detail-seg{
+    height:380px;overflow:hidden;border-radius:8px;margin-bottom:8px;
+  }
+  .detail-seg img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+
+  /* 底部 */
+  .footer{
+    text-align:center;padding:40px 16px 32px;color:#999;font-size:12px;
+    border-top:1px solid #E7E4DD;margin-top:32px;
+  }
+  .footer .wechat{color:#2B2420;font-size:14px;margin-bottom:6px;font-weight:500;}
+
+  /* 板块切换：display none */
+  .panel{display:none;}
+  .panel.show{display:block;}
+
+  @media(min-width:768px){
+    .hero h1{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 极简 Hero ===== -->
+<header class="hero">
+  <div class="wrap">
+    <h1>电商视觉作品集</h1>
+    <p>3C 小家电两季品类 ｜ 主图 / 详情 / C4D / AI 视频</p>
+  </div>
+</header>
+
+<!-- ===== 板块导航 ===== -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-row">
+      <button class="active" data-panel="detail">详情页</button>
+      <button data-panel="c4d">C4D</button>
+      <button data-panel="main">主图</button>
+      <button data-panel="aivid">AI 视频</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ 板块 1：详情页 ============ -->
+  <section class="panel show" id="panel-detail">
+    <div class="section">
+      <h2 class="sec-title">详情页</h2>
+      <div class="sec-sub">详情页设计展示</div>
+
+      <div class="full"><img src="assets/detail-new1.jpg" alt="详情页1"></div>
+      <div class="full"><img src="assets/detail-new2.jpg" alt="详情页2"></div>
+      <div class="full"><img src="assets/detail-new3.jpg" alt="详情页3"></div>
+      <div class="full"><img src="assets/detail-new4.jpg" alt="详情页4"></div>
+      <div class="full"><img src="assets/detail-new5.jpg" alt="详情页5"></div>
+      <div class="full"><img src="assets/detail-new6.jpg" alt="详情页6"></div>
+    </div>
+  </section>
+
+  <!-- ============ 板块 2：C4D ============ -->
+  <section class="panel" id="panel-c4d">
+    <div class="section">
+      <h2 class="sec-title">C4D 渲染</h2>
+      <div class="sec-sub">产品三维渲染 · 场景搭建 · 材质灯光</div>
+
+      <div class="full"><img src="assets/c4d6.png" alt="壁炉暖风机场景"></div>
+      <div class="grid-2">
+        <div class="full"><img src="assets/c4d1.png" alt="油汀电暖器场景"></div>
+        <div class="full"><img src="assets/c4d7.png" alt="洗衣机场景"></div>
+      </div>
+      <div class="full"><img src="assets/c4d4.png" alt="挂烫机角度"></div>
+      <div class="grid-2">
+        <div class="full"><img src="assets/c4d2.png" alt="饮水机场景"></div>
+        <div class="full"><img src="assets/c4d3.jpg" alt="风扇爆炸图"></div>
+      </div>
+      <div class="full"><img src="assets/c4d5.jpg" alt="电蚊拍场景"></div>
+    </div>
+  </section>
+
+  <!-- ============ 板块 3：主图 ============ -->
+  <section class="panel" id="panel-main">
+    <div class="section">
+      <h2 class="sec-title">主图 / 推广图</h2>
+      <div class="sec-sub">750×750 主图 · 推广创意图</div>
+
+      <div class="grid-2">
+        <div class="full"><img src="assets/img1.jpg" alt="中塔风扇主图"></div>
+        <div class="full"><img src="assets/img7.jpg" alt="油汀主图"></div>
+      </div>
+      <div class="grid-3">
+        <div class="full"><img src="assets/img2.jpg" alt="冷风机主图"></div>
+        <div class="full"><img src="assets/img6.jpg" alt="热水袋主图"></div>
+        <div class="full"><img src="assets/img3.jpg" alt="壁扇主图"></div>
+      </div>
+      <div class="grid-2">
+        <div class="full"><img src="assets/img9.jpg" alt="电热膜主图"></div>
+        <div class="full"><img src="assets/img5.jpg" alt="平面扇主图"></div>
+      </div>
+      <div class="grid-3">
+        <div class="full"><img src="assets/img4.jpg" alt="小太阳主图"></div>
+        <div class="full"><img src="assets/img10.jpg" alt="塑封机主图"></div>
+        <div class="full"><img src="assets/img8.jpg" alt="脚踩太阳主图"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 板块 4：AI 视频 ============ -->
+  <section class="panel" id="panel-aivid">
+    <div class="section">
+      <h2 class="sec-title">AI 视频 / 动效</h2>
+      <div class="sec-sub">图生视频 · 产品动态展示 · 主图视频</div>
+
+      <!-- 视频位：把 mp4 放 assets/ 目录后替换 src -->
+      <div class="vid">
+        <video controls playsinline preload="metadata">
+          <source src="assets/fengshan.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="vid">
+        <video controls playsinline preload="metadata">
+          <source src="assets/zha.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 底部极简联系 ===== -->
+<footer class="footer">
+  <div class="wechat">微信：zph66370115</div>
+  <div>Boss 直聘可直接沟通 · 期待聊聊</div>
+</footer>
+
+<script>
+  const btns = document.querySelectorAll('.nav-row button');
+  const panels = document.querySelectorAll('.panel');
+  btns.forEach(b=>{
+    b.addEventListener('click',()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      panels.forEach(p=>p.classList.remove('show'));
+      document.getElementById('panel-'+b.dataset.panel).classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
